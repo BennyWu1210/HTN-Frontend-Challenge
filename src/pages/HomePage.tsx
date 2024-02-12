@@ -1,19 +1,18 @@
 import React from "react";
-import { motion } from "framer-motion"
-import Navbar from "../components/Nav";
-import Hero from "../components/Hero";
+import Navbar from "../components/shared/Nav";
+import Hero from "../components/home/Hero";
+import Scroller from "../components/home/Scroller";
+import About from "../components/home/About";
+import Schedule from "../components/shared/Schedule";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="bg-metal h-screen w-screen pt-30vh">
+    <div className="bg-metal h-full w-screen py-30vh">
       <Navbar />
       <Hero />
-
-      {/* Scroller */}
-
-      {/* About */}
-
-      {/* Public Schedule */}
+      <Scroller />
+      <About /> 
+      <Schedule />
     </div>
   );
 }

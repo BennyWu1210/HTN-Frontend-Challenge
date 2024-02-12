@@ -20,3 +20,13 @@ code {
   --white: #f3f3f3;
   --almond: #e1e0d5;
 }
+
+/* For scroller section in home page */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
