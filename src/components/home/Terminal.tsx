@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TypeWriterComponent from 'typewriter-effect';
 
 enum LoadingState { Empty, Loading, Complete };
@@ -19,20 +19,20 @@ const AnimatedTerminal: React.FC = () => {
   }
 
   const getLoadingLine = () => {
-    if (loading == LoadingState.Loading) {
+    if (loading === LoadingState.Loading) {
       return <div className=""> {spinner[spinnerIndex]} </div>
     }
-    else if (loading == LoadingState.Complete) {
+    else if (loading === LoadingState.Complete) {
       return <span>✔️ Loading Completed</span>
     }
   }
 
   return (
-    <div className="relative bg-black-light text-white p-8 pt-16 font-mono text-base flex flex-col h-80 mx-2 rounded-xl drop-shadow-xl">
+    <div className="relative bg-black-light text-white p-8 pt-16 font-mono text-base flex flex-col h-80 rounded-xl drop-shadow-xl">
       {/* First line */}
       <div className='flex flex-row'>
         <span className='text-gray-500 px-3'>$</span>
-        {loading == LoadingState.Empty ? 
+        {loading === LoadingState.Empty ? 
         <TypeWriterComponent 
           onInit={typewriter => { typewriter.pauseFor(500).typeString("node ./hackGlobal.js").callFunction(triggerLoading).start()}} 
         /> : <span>node ./hackGlobal.js</span>}
@@ -46,7 +46,7 @@ const AnimatedTerminal: React.FC = () => {
       </div>
       
       {/* Loading line 2 */}
-      {loading == LoadingState.Complete && 
+      {loading === LoadingState.Complete && 
         <div className='flex flex-row'>
           <span className='w-3'></span>
           <span>Enjoy Hacking! ✨</span>
@@ -55,7 +55,7 @@ const AnimatedTerminal: React.FC = () => {
       
         
       {/* Empty line */}
-      {loading == LoadingState.Complete && 
+      {loading === LoadingState.Complete && 
         <div className='flex flex-row'>
         <span className='text-gray-500 px-3'>$</span>
           <TypeWriterComponent onInit={typewriter => { typewriter.typeString("").start() }} />
