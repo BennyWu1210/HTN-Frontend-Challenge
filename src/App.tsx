@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 
 function App() {
   // for animation purposes (cool loading yayyy)
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200); // Simulate a loading delay

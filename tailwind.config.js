@@ -31,6 +31,9 @@ module.exports = {
           "0 0px 20px rgba(255, 255, 255, 0.35)"
         ]
       },
+      flexGrow: {
+        2: '2'
+      }
     },
   },
   plugins: [],

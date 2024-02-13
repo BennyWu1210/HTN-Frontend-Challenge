@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState<string>('');
 
   const onLogin = () => {
     navigate('/portal', {

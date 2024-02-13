@@ -4,7 +4,7 @@ import TypeWriterComponent from 'typewriter-effect';
 enum LoadingState { Empty, Loading, Complete };
 
 const AnimatedTerminal: React.FC = () => {
-  const [loading, setLoading] = useState(LoadingState.Empty);
+  const [loading, setLoading] = useState<LoadingState>(LoadingState.Empty);
   const spinner = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
   const [spinnerIndex, setSpinnerIndex] = useState(0);
 
@@ -18,7 +18,6 @@ const AnimatedTerminal: React.FC = () => {
     setTimeout(() => { setLoading(LoadingState.Complete); clearInterval(spinnerInterval); }, 3500);
   }
 
-  // for simplicity purposes
   const getLoadingLine = () => {
     if (loading == LoadingState.Loading) {
       return <div className=""> {spinner[spinnerIndex]} </div>
