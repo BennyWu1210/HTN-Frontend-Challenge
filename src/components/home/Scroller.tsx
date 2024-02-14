@@ -1,6 +1,7 @@
 import StatCard from "../shared/StatCard";
 
-const textData = [
+// Dummy data
+const textData: string[] = [
   "30+ Workshops",
   "100+ Mentors",
   "18 Countries",
@@ -8,18 +9,19 @@ const textData = [
   "300k+ in Prizes",
   "Lots of Geese",
   "30+ Sponsors",
-  
-]
+];
 
-const CardsDisplay = textData.map(text => <StatCard text={text} />)
+const CardsDisplay = textData.map(text => <StatCard text={text} />);
+
+// A component displaying the infinite scrolling effect with relevant statistics
 const Scroller: React.FC = () => {
   return (
     <div className="mt-80 whitespace-nowrap overflow-hidden overflw scroll">
-      <div className="animate-scroll" 
+      <div className="animate-scroll"
         style={{
-        display: 'inline-block',
-        animation: `scroll 18s linear infinite`
-      }}>
+          display: 'inline-block',
+          animation: `scroll 18s linear infinite`
+        }}>
         {CardsDisplay}
         {CardsDisplay}
       </div>

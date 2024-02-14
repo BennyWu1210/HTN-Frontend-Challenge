@@ -2,8 +2,6 @@ import CloseButton from "../../assets/close.png";
 import { convertTime, getTimeOfDay } from "../../utils/date";
 import { TEvent } from "../../utils/schema";
 
-// TODO: consider using portals? only if I have time
-// Idea: Use a modal and overlay to display an event
 
 interface EventProps {
   onClose: () => void
@@ -11,25 +9,25 @@ interface EventProps {
   events: TEvent[]
 }
 
+// A component that acts as a modal and overlays the screen to display an event
 const Event: React.FC<EventProps> = (props) => {
 
   const name = props.event.name;
   const time = getTimeOfDay(convertTime(props.event.start_time)) + " - " + getTimeOfDay(convertTime(props.event.end_time));
   const description = props.event.description;
   const relatedEvents = props.event.related_events;
-  
+
   return (
     <div className='fixed left-0 top-0 h-screen w-screen bg-metal-light flex items-center justify-center'>
       <div className="relative bg-black-light md:h-event-len md:w-event-wid flex justify-center items-center shadow-xl overflow-scroll">
-        {/* To be changed (icon) */}
-        <span className="absolute left-10 top-10"><img alt="Close Button" className="cursor-pointer"height={30} width={30} src={CloseButton} onClick={() =>{props.onClose()}}/></span>
+        <span className="absolute left-10 top-10"><img alt="Close Button" className="cursor-pointer" height={30} width={30} src={CloseButton} onClick={() => { props.onClose() }} /></span>
         <div className="h-4/6 w-5/6 flex flex-col">
           {/* Title */}
           <h2 className="text-almond font-bold text-3xl">{name}</h2>
 
           {/* Date */}
           <span className="mt-2 text-khaki">{time}</span>
-          
+
           {/* Line */}
           <div className="my-5 block w-event-len h-px bg-white" />
 

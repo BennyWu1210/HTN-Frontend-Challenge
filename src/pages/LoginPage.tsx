@@ -19,9 +19,9 @@ const LoginPage: React.FC = () => {
       <h2 className="text-almond font-bold text-3xl">Sign In</h2>
       <form className="my-4 flex flex-col gap-4">
         <span className="text-white text-lg">Username</span>
-        <input className="h-12 rounded-lg bg-slate-200 p-2" value={username} onChange={(e) => setUsername(e.target.value)}/>
+        <input className="h-12 rounded-lg bg-slate-200 p-3" value={username} onChange={(e) => setUsername(e.target.value)}/>
         <span className="text-white text-lg">Password</span>
-        <input className="h-12 rounded-lg bg-slate-200 p-2" />
+        <input className="h-12 rounded-lg bg-slate-200 p-3" type="password" />
 
         <span></span>
         <span></span>

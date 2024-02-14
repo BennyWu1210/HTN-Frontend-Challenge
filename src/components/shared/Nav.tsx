@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   let lastScrollY = window.scrollY;
 
   useEffect(() => {
-    // logic to handle scroll animation
+    // Logic to handle scroll animation
     const handleScroll = () => {
       if (window.scrollY < lastScrollY || window.scrollY < 50) {
         setIsVisible(true);

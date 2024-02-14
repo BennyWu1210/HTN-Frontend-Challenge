@@ -5,6 +5,7 @@ export function convertTime(unixTime: number): string {
 
 export function getTimeOfDay(time: string): string {
   const date = new Date(time);
-
-  return date.toLocaleTimeString();
+  const dateString = date.toLocaleTimeString().split(":");
+  
+  return dateString[0] + ":" + dateString[1] + " " + dateString[2].substring(3);
 }

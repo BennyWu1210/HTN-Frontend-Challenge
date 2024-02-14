@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import { useEffect, useState } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoadingScreen from './pages/LoadingPage';
@@ -7,7 +7,7 @@ import LoginPage from './pages/LoginPage';
 import PortalPage from './pages/PortalPage';
 
 
-// a collection of routes in the website
+// A collection of routes in the website
 const router = createBrowserRouter([
   { path: "*", element: <HomePage /> },
   { path: "/", element: <HomePage /> },
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
 
 
 function App() {
-  // for animation purposes (cool loading yayyy)
+  // For animation purposes (cool loading yayyy)
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
