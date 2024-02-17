@@ -3,7 +3,7 @@ import TypeWriterComponent from 'typewriter-effect';
 
 enum LoadingState { Empty, Loading, Complete };
 
-// Custom designed terminal with animation and typewriting effects
+// Custom designed terminal (super cool!) with animation and typewriting effects
 const AnimatedTerminal: React.FC = () => {
   const [loading, setLoading] = useState<LoadingState>(LoadingState.Empty);
   const spinner: string[] = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];

@@ -6,7 +6,6 @@ import facebookIcon from "../../assets/facebook-icon.png";
 import instagramIcon from "../../assets/instagram-icon.png";
 import linkedinIcon from "../../assets/linkedin-icon.png";
 
-
 const Hero: React.FC = () => {
   return (
     <div className="flex m-auto w-11/12 md:w-10/12 pl-8 md:pl-10 flex-col lg:flex-row overflow-y-scroll">
@@ -22,7 +21,7 @@ const Hero: React.FC = () => {
         {/* Title and subtitle */}
         <div className="mt-5">
           <motion.h3 {...headingProperties} className="text-4xl sm:text-7xl 2xl:text-8xl font-bold text-white" style={{ textShadow: "rgb(225,225,225,0.7) 4px 0 20px" }}>Hack Global 11</motion.h3>
-          <h3 className="mt-4 text-lg xl:text-3xl text-khaki font-medium">September 13-15 · Waterloo, ON</h3>
+          <h3 className="mt-4 text-lg xl:text-3xl text-khaki font-medium">In-person event · Waterloo, ON</h3>
           <h3 className="mt-12 text-sm xl:text-lg text-white font-light">Hacker application opens soon. Stay tuned!</h3>
         </div>
       </div>

@@ -10,8 +10,9 @@ const EventList: React.FC<EventListProps> = (props) => {
   const [selectedEvent, setSelectedEvent] = useState<TEvent | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>(""); // State to store search query value.
   const [selectedEventType, setSelectedEventType] = useState<string>("all"); // State to store selected event type for filtering.
+  
 
-  // Fetches event data from the API and filters based on permission.
+  // Fetches event data from the API and filter based on permission.
   const fetchData = () => {
     fetch("https://api.hackthenorth.com/v3/events")
       .then(response => response.json())
@@ -43,8 +44,13 @@ const EventList: React.FC<EventListProps> = (props) => {
 
   // Filters events based on search query and selected event type.
   const filteredEvents = events.filter(event => {
-    return event.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      (selectedEventType === "all" || event.event_type === selectedEventType);
+    if (!event.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return false;
+    }
+    if (selectedEventType === "liked") {
+      return localStorage.getItem(`event-${event.id}`)  === 'true';
+    }
+    return (selectedEventType === "all" || event.event_type === selectedEventType);
   });
 
   // Group events by date
@@ -76,10 +82,11 @@ const EventList: React.FC<EventListProps> = (props) => {
           value={selectedEventType}
           onChange={(e) => setSelectedEventType(e.target.value)}
         >
-          <option value="all">All Types</option>
-          <option value="workshop">Workshop</option>
-          <option value="tech_talk">Tech Talk</option>
-          <option value="activity">Activity</option>
+          <option value="all">🪄 All Types</option>
+          <option value="workshop">⛽️ Workshop</option>
+          <option value="tech_talk">🎙️ Tech Talk</option>
+          <option value="activity">🎯 Activity</option>
+          <option value="liked">⭐️ Liked</option>
         </select>
       </div>
     </div>
@@ -102,7 +109,7 @@ const EventList: React.FC<EventListProps> = (props) => {
         </div>
       ))}
 
-      {isModalOpen && selectedEvent && <Event event={selectedEvent} events={events} onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && selectedEvent && <Event event={selectedEvent} events={events} onClose={() => setIsModalOpen(false)} handleEventClick={handleEventClick} />}
 
     </div>
   </div>

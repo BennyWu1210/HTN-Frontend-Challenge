@@ -4,9 +4,9 @@ interface StatProps {
 
 const StatCard: React.FC<StatProps> = ({ text }) => {
   return <div
-    className="w-card inline-block mx-10 text-almond overflow-hidden p-3 text-center text-3xl placeholder:font-bold"
+    className="w-card inline-block mx-10 text-almond overflow-hidden p-3 text-center text-3xl placeholder:font-bold hover:scale-110 transition-all"
     style={{ textShadow: "rgb(234,224,213,0.7) 0px 0 20px" }}>
     {text}
   </div>
 }
-export default StatCard;
+export default StatCard; 

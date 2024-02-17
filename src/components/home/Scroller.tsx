@@ -1,6 +1,6 @@
 import StatCard from "../shared/StatCard";
 
-// Dummy data
+// Dummy data to be displayed
 const textData: string[] = [
   "30+ Workshops",
   "100+ Mentors",

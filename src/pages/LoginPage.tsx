@@ -15,6 +15,7 @@ const LoginPage: React.FC = () => {
   return <div className="bg-metal h-screen w-screen flex">
     <Navbar />
 
+    {/* Sign In Box */}
     <div className="w-login-wid h-login-len bg-black-light m-auto drop-shadow-2xl flex flex-col p-16 rounded-md">
       <h2 className="text-almond font-bold text-3xl">Sign In</h2>
       <form className="my-4 flex flex-col gap-4">
@@ -22,10 +23,8 @@ const LoginPage: React.FC = () => {
         <input className="h-12 rounded-lg bg-slate-200 p-3" value={username} onChange={(e) => setUsername(e.target.value)}/>
         <span className="text-white text-lg">Password</span>
         <input className="h-12 rounded-lg bg-slate-200 p-3" type="password" />
-
         <span></span>
         <span></span>
-
         <div className="h-12 rounded-lg bg-khaki cursor-pointer">
           <div className="h-full w-full flex justify-center items-center" onClick={onLogin} >Submit</div>
         </div>
