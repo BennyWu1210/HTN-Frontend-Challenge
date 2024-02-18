@@ -42,13 +42,13 @@ const Event: React.FC<EventProps> = (props) => {
 
   return (
     <div className='fixed left-0 top-0 h-screen w-screen bg-metal-light flex items-center justify-center'>
-      <div className="relative bg-black-light md:h-event-len md:w-event-wid flex justify-center items-center shadow-xl overflow-scroll">
+      <div className="relative bg-black-light py-10 md:p-0 md:h-event-len md:w-event-wid flex justify-center items-center shadow-xl overflow-y-scroll">
         <span className="absolute left-10 top-10"><img alt="Close Button" className="cursor-pointer" height={30} width={30} src={CloseButton} onClick={() => { props.onClose() }} /></span>
         <div className="h-4/6 w-5/6 flex flex-col">
           {/* Title */}
           <div className="flex items-center gap-6">
-            <a href={link}><h2 className="text-almond font-bold text-3xl">{name}</h2></a>
-            <img className="cursor-pointer" alt="Liked Status" src={liked ? StarFilled : StarUnFilled} height={36} width={36} onClick={toggleLike} />
+            <a href={link} target="_blank"><h2 className="text-almond font-bold text-3xl hover:opacity-85">{name}</h2></a>
+            <img className="cursor-pointer hover:scale-110" alt="Liked Status" src={liked ? StarFilled : StarUnFilled} height={36} width={36} onClick={toggleLike} />
           </div>
 
 
@@ -56,9 +56,9 @@ const Event: React.FC<EventProps> = (props) => {
           <span className="mt-2 text-khaki">{time}</span>
 
           {/* Line */}
-          <div className="my-5 block w-event-len h-px bg-white" />
+          <span className="my-5 block h-px border-t border-white" />
 
-          <div className="flex gap-5 md:gap-40">
+          <div className="flex gap-5 md:gap-40 flex-col md:flex-row">
             {/* Desrciption */}
             <div className="">
               <span className="font-bold text-white">Description:</span>
@@ -69,9 +69,12 @@ const Event: React.FC<EventProps> = (props) => {
             <div>
               <div className="">
                 <span className="font-bold text-white">Related Events:</span>
-                <div className="rounded-lg cursor-pointer flex flex-col gap-4 mt-3">
+                <div className="rounded-lg flex md:flex-col gap-4 mt-3">
                   {props.events.filter(event => relatedEvents.includes(event.id)).map(filteredEvent =>
-                    <div className="h-12 w-20 md:w-80 flex justify-center bg-khaki items-center rounded-md" key={filteredEvent.id} onClick={() => switchEvent(filteredEvent.id)}>{filteredEvent.name}</div>
+                    <div className="h-12 w-50 md:w-80 flex justify-center bg-khaki items-center rounded-md hover:opacity-85 cursor-pointer"
+                      key={filteredEvent.id}
+                      onClick={() => switchEvent(filteredEvent.id)}
+                    >{filteredEvent.name}</div>
                   )}
                 </div>
               </div>

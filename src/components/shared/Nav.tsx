@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+
+
+
+const notionLink = "https://grave-space-21c.notion.site/HTN-Frontend-Challenge-2024-9daae9ea5dd24101ae498c38e5c2491c?pvs=4";
 
 // A super cool nav bar!
 const Navbar: React.FC = () => {
@@ -19,27 +23,27 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => {window.removeEventListener('scroll', handleScroll);};
+    return () => { window.removeEventListener('scroll', handleScroll); };
   }, []);
-  
+
 
   return (
     <nav className={`fixed w-full ${isVisible ? 'top-0' : '-top-20'} transition-top duration-300 ease-in-out z-50`}>
       <div className="mx-auto pl-12 pr-36">
         <div className="flex justify-between text-2xl">
-            <div className='hidden md:flex'>
-              <Link to="/" className="flex items-center py-10 px-2 text-white hover:text-gray-900">
-                Hack Global Inc.™️
-              </Link>
-            </div>
+          <div className='hidden md:flex'>
+            <Link to="/" className="flex items-center py-10 px-2 text-white hover:text-gray-900">
+              Hack Global Inc.™️
+            </Link>
+          </div>
 
-            {/* Primary nav */}
-            <div className="flex items-center space-x-1">
-              <a href="/#about" className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35">About</a>
-              <a href="/#events" className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35">Events</a>
-              <Link to="/writeup" className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35">Writeup</Link>
-              <Link to="/login" className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35">Portal</Link>
-            </div>
+          {/* Primary nav */}
+          <div className="flex items-center space-x-1">
+            <a href="/#about" className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35">About</a>
+            <a href="/#events" className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35">Events</a>
+            <a href={notionLink} className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35" target="_blank" >Writeup</a>
+            <Link to="/login" className="text-lg sm:text-2xl py-10 px-3 text-gray-200 hover:opacity-35">Portal</Link>
+          </div>
         </div>
       </div>
     </nav>

@@ -21,7 +21,7 @@ const PortalPage: React.FC<PortalProps> = ({ name = "Eugene" }: PortalProps) => 
           <h3 className="text-xl mt-2 text-white">This is your hacker portal with a list of all available events</h3>
         </div>
 
-        <div className="h-10 w-32 rounded-lg bg-khaki cursor-pointer">
+        <div className="h-10 w-32 rounded-lg bg-khaki cursor-pointer mt-5">
           <div className="h-full w-full flex justify-center items-center" onClick={onLogout}> Log Out</div>
         </div>
       </div>

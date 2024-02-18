@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         {/* Title and subtitle */}
         <div className="mt-5">
           <motion.h3 {...headingProperties} className="text-4xl sm:text-7xl 2xl:text-8xl font-bold text-white" style={{ textShadow: "rgb(225,225,225,0.7) 4px 0 20px" }}>Hack Global 11</motion.h3>
-          <h3 className="mt-4 text-lg xl:text-3xl text-khaki font-medium">In-person event · Waterloo, ON</h3>
+          <h3 className="mt-4 text-lg xl:text-3xl bg-gradient-to-r from-khaki via-almond to-khaki inline-block text-transparent bg-clip-text leading-normal font-medium">In-person event · Waterloo, ON</h3>
           <h3 className="mt-12 text-sm xl:text-lg text-white font-light">Hacker application opens soon. Stay tuned!</h3>
         </div>
       </div>

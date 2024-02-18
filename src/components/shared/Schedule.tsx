@@ -5,11 +5,11 @@ import EventList from "./EventList";
 // The section of the page that displays the public schedule
 const Schedule: React.FC = () => {
   return (
-    <div className="mt-40 px-10 md:w-9/12 md:pl-10 m-auto" id="events">
+    <div className="mt-40 px-10 lg:w-9/12 lg:pl-10 m-auto" id="events">
       <motion.h2
         {...titleDesign}
         className="text-5xl font-bold text-almond">Schedule</motion.h2 >
-
+      <h3 className="mt-4 text-white text-xl">Please log in to view full event schedule!</h3>
       <EventList permission="public" />
     </div>
   );

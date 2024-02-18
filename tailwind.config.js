@@ -21,7 +21,7 @@ module.exports = {
       },
       height: {
         'login-len': '510px',
-        'event-len': '560px'
+        'event-len': '560px',
       },
       spacing: {
         '30vh': '30vh',
