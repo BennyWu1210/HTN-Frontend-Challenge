@@ -22,7 +22,9 @@ const Event: React.FC<EventProps> = (props) => {
   const time = getTimeOfDay(convertTime(props.event.start_time)) + " - " + getTimeOfDay(convertTime(props.event.end_time));
   const description = props.event.description;
   const relatedEvents = props.event.related_events;
-  const link = props.event.permission === "private" ? props.event.private_url : props.event.public_url;
+  const speaker = props.event.speakers;
+  const permission = props.event.permission;
+  const link = permission === "private" ? props.event.private_url : props.event.public_url;
   const switchEvent = props.handleEventClick;
 
   // initialize the 'liked' state of the current event in localStorage
@@ -52,8 +54,15 @@ const Event: React.FC<EventProps> = (props) => {
           </div>
 
 
-          {/* Date */}
-          <span className="mt-2 text-khaki">{time}</span>
+          {/* Date & Speaker*/}
+          <div className="mt-2">
+            <span className="text-khaki hover:opacity-85">⌛️ {time}</span>
+            <span className="text-khaki mx-3">/</span>
+            <span className="text-khaki hover:opacity-85">{permission === "public" ? "Public Event" : "Private Event"}</span>
+            <span className="text-khaki mx-3">/</span>
+            <span className="text-khaki hover:opacity-85">{speaker[0] !== undefined ? speaker[0].name : "Activity"}</span>
+          </div>
+          
 
           {/* Line */}
           <span className="my-5 block h-px border-t border-white" />
@@ -71,7 +80,7 @@ const Event: React.FC<EventProps> = (props) => {
                 <span className="font-bold text-white">Related Events:</span>
                 <div className="rounded-lg flex md:flex-col gap-4 mt-3">
                   {props.events.filter(event => relatedEvents.includes(event.id)).map(filteredEvent =>
-                    <div className="h-12 w-50 md:w-80 flex justify-center bg-khaki items-center rounded-md hover:opacity-85 cursor-pointer"
+                    <div className="h-12 w-50 md:w-80 flex justify-center bg-khaki items-center rounded-md hover:opacity-95 cursor-pointer hover:text-almond"
                       key={filteredEvent.id}
                       onClick={() => switchEvent(filteredEvent.id)}
                     >{filteredEvent.name}</div>

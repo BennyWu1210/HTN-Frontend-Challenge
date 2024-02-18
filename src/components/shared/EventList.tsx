@@ -79,7 +79,8 @@ const EventList: React.FC<EventListProps> = (props) => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <select
-          className="mx-4 py-2 px-5 bg-metal text-white rounded-lg"
+          className="mx-4 py-2 px-4 bg-metal text-white rounded-lg"
+          aria-label="Select"
           value={selectedEventType}
           onChange={(e) => setSelectedEventType(e.target.value)}
         >
@@ -125,10 +126,10 @@ const EventTile: React.FC<EventTileProps> = ({ start_time, end_time, event_name,
   }
 
   const tagColor = colorMap[event_type];
-  return <div className="w-full md:h-24 bg-almond my-6 mr-40 p-5 rounded-xl flex items-center justify-between text-lg cursor-pointer hover:opacity-75" onClick={() => onClick(id)}>
-    <h3 className="hidden md:flex w-3/12">{getTimeOfDay(start_time)} - {getTimeOfDay(end_time)}</h3>
+  return <div className="w-full md:h-24 bg-almond my-6 mr-40 p-5 rounded-xl flex flex-col items-start md:flex-row md:items-center justify-between text-lg cursor-pointer hover:opacity-80 hover:border-2 hover:border-khaki" onClick={() => onClick(id)}>
+    <h3 className="md:flex md:w-3/12">{getTimeOfDay(start_time)} - {getTimeOfDay(end_time)}</h3>
     <span className="w-full md:w-7/12 font-bold">{event_name}</span>
-    <span className={`hidden md:flex ${tagColor} text-center px-10 py-1 rounded-full text-white font`} style={{ backgroundColor: tagColor }}>
+    <span className={`mt-3 md:mt-0 md:flex ${tagColor} text-center px-10 py-1 rounded-full text-white font`} style={{ backgroundColor: tagColor }}>
       {event_type}
     </span>
   </div>

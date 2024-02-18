@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import EventList from "./EventList";
+import { Link } from "react-router-dom";
 
 
 // The section of the page that displays the public schedule
@@ -9,7 +10,7 @@ const Schedule: React.FC = () => {
       <motion.h2
         {...titleDesign}
         className="text-5xl font-bold text-almond">Schedule</motion.h2 >
-      <h3 className="mt-4 text-white text-xl">Please log in to view full event schedule!</h3>
+      <h3 className="mt-4 text-white text-xl">Please <Link to="/login" className="font-bold hover:opacity-80">log in</Link> in to view full event schedule!</h3>
       <EventList permission="public" />
     </div>
   );
