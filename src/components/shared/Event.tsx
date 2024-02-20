@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import CloseButton from "../../assets/close.png";
 import { convertTime, getTimeOfDay } from "../../utils/date";
-import { TEvent } from "../../utils/schema";
 import StarFilled from '../../assets/star-filled.png';
 import StarUnFilled from '../../assets/star.png';
+import { EventProps, colorMap } from "../../utils/types";
 
 
-interface EventProps {
-  onClose: () => void
-  event: TEvent
-  events: TEvent[]
-  handleEventClick: (id: number) => void
-}
+
 
 // A component that acts as a modal and overlays the screen to display an event
 const Event: React.FC<EventProps> = (props) => {
@@ -43,8 +38,8 @@ const Event: React.FC<EventProps> = (props) => {
   }
 
   return (
-    <div className='fixed left-0 top-0 h-screen w-screen bg-metal-light flex items-center justify-center'>
-      <div className="relative bg-black-light py-10 md:p-0 md:h-event-len md:w-event-wid flex justify-center items-center shadow-xl overflow-y-scroll">
+    <div className='fixed left-0 top-0 h-screen w-screen bg-metal-light flex items-center justify-center overflow-scroll'>
+      <div className="relative bg-black-light py-20 md:p-0 md:h-event-len md:w-event-wid flex justify-center items-center shadow-xl overflow-scroll">
         <span className="absolute left-10 top-10"><img alt="Close Button" className="cursor-pointer" height={30} width={30} src={CloseButton} onClick={() => { props.onClose() }} /></span>
         <div className="h-4/6 w-5/6 flex flex-col">
           {/* Title */}
@@ -62,12 +57,12 @@ const Event: React.FC<EventProps> = (props) => {
             <span className="text-khaki mx-3">/</span>
             <span className="text-khaki hover:opacity-85">{speaker[0] !== undefined ? speaker[0].name : "Activity"}</span>
           </div>
-          
+
 
           {/* Line */}
           <span className="my-5 block h-px border-t border-white" />
 
-          <div className="flex gap-5 md:gap-40 flex-col md:flex-row">
+          <div className="flex gap-5 md:gap-28 flex-col md:flex-row">
             {/* Desrciption */}
             <div className="">
               <span className="font-bold text-white">Description:</span>
@@ -78,12 +73,17 @@ const Event: React.FC<EventProps> = (props) => {
             <div>
               <div className="">
                 <span className="font-bold text-white">Related Events:</span>
-                <div className="rounded-lg flex md:flex-col gap-4 mt-3">
+                <div className="rounded-lg flex flex-col gap-4 mt-3 mb-8">
                   {props.events.filter(event => relatedEvents.includes(event.id)).map(filteredEvent =>
-                    <div className="h-12 w-50 md:w-80 flex justify-center bg-khaki items-center rounded-md hover:opacity-95 cursor-pointer hover:text-almond"
+                    <div className="h-20 w-50 min-w-96 md:w-96 flex flex-col justify-center items-start bg-khaki p-4 rounded-md hover:opacity-90 cursor-pointer"
                       key={filteredEvent.id}
                       onClick={() => switchEvent(filteredEvent.id)}
-                    >{filteredEvent.name}</div>
+                    >
+                      <h2>{filteredEvent.name}</h2>
+                      <span className={`mt-1 md:flex ${colorMap[filteredEvent.event_type]} text-center px-5 py-1 rounded-full text-white font`}>
+                        <span className="text-sm">{filteredEvent.event_type}</span>
+                      </span>
+                    </div>
                   )}
                 </div>
               </div>

@@ -24,9 +24,9 @@ const LoginPage: React.FC = () => {
       <h2 className="text-almond font-bold text-3xl">Sign In</h2>
       <form className="my-4 flex flex-col gap-4">
         <label className="text-white text-lg" htmlFor="usernameInput">Username</label>
-        <input className="h-12 rounded-lg bg-slate-200 p-2" id="usernameInput" aria-label="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input className="h-12 rounded-lg bg-slate-200 p-2 pl-5" id="usernameInput" aria-label="Username" placeholder="Enter Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <label className="text-white text-lg" htmlFor="passwordInput">Password</label>
-        <input className="h-12 rounded-lg bg-slate-200 p-2" id="passwordInput" aria-label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className="h-12 rounded-lg bg-slate-200 p-2 pl-5" id="passwordInput" aria-label="Password" placeholder="Enter Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <span></span>
         <span></span>
         <div className="h-12 rounded-lg bg-khaki cursor-pointer hover:opacity-90">

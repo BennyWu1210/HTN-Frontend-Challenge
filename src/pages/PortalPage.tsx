@@ -18,7 +18,7 @@ const PortalPage: React.FC<PortalProps> = ({ name = "Eugene" }: PortalProps) => 
           <span className="bg-gradient-to-r from-khaki via-almond to-khaki inline-block text-transparent bg-clip-text text-5xl leading-normal">
             Welcome, {name}!
           </span>
-          <h3 className="text-xl mt-2 text-white">This is your hacker portal with a list of all available events</h3>
+          <h3 className="text-xl mt-2 text-white">This is your hacker portal with a list of all available events (sorry if you're not Eugene!)</h3>
         </div>
 
         <div className="h-10 w-32 rounded-lg bg-khaki cursor-pointer mt-5">

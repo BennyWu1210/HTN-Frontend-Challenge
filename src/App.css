@@ -62,3 +62,27 @@
   height: 42px;
   margin: 0 0 14px -2px;
 }
+
+/* ===================== Event on hover ===================== */
+.tile-text {
+  background-image: linear-gradient(
+    to right,
+    var(--khaki) 40%,
+    var(--khaki) 20%,
+    #000 40%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.1s ease-in-out;
+}
+
+
+.tile:hover > .tile-text {
+  background-position: 0;
+}
+
+.tile:hover > .tile-text::before  {
+  width: 100%;
+}
